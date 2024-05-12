@@ -1,6 +1,6 @@
 <img src="logo.svg" alt="Logo" width="200"/>
-# NESTAWARE
-##Yellow-Billed Hornbill Thermal Management and Monitoring System
+
+## Yellow-Billed Hornbill Thermal Management and Monitoring System
 
 ## Overview
 This project aimed to develop a thermal management and monitoring system for Yellow-Billed Hornbills nests. The readme provides an overview of the project, contributors, and key achievements.
