@@ -1,4 +1,4 @@
-<img src="logo.svg" alt="Logo" style="width: 500px; filter: invert(1);" />
+<img src="logoWhite.svg" alt="Logo" style="width: 500px; filter: invert(1);" />
 
 ## Yellow-Billed Hornbill Thermal Management and Monitoring System
 
