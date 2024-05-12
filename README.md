@@ -13,8 +13,8 @@ This project aimed to develop a thermal management and monitoring system for Yel
   - Design revised nest box with vents, heat transfer methods, and thermal insulators
   - Explore performance of thermoelectric cooling systems
 - **Holly Lewis** - 
-  - Identify suitable management system for temperature data
-  - Select temperature sensor and design user interface for data presentation
+  - Design User interface to graphically represent data
+  - Design sensor module that triggers TEC
 
 ## Prepared for
 EEE4113F  
