@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - AvianMonitor</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="padding: 8px 0px;height: 80px;">
+                    <div class="container-fluid"><span></span>
+                        <div class="col"><img src="assets/img/Logosmall.png" width="378" height="43" style="height: 60%;width: 40%;color: var(--bs-navbar-active-color);opacity: 0.78;"></div>
+                        <div class="col-xl-1 offset-1 offset-sm-0 offset-md-3 offset-lg-5 offset-xl-4"><i class="la la-gear d-inline" style="font-size: 32px;color: var(--bs-navbar-hover-color);text-align: center;height: 40%;width: 40%;"></i></div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 offset-sm-0">
+                            <div class="bg-dark border rounded p-4 p-md-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 class="fw-bold text-white mb-3" style="text-align: center;">Select Data Ranges</h2>
+                                    </div>
+                                </div>
+                                <div class="row gy-2 d-flex justify-content-center align-items-center">
+                                    <div class="col-6"><button id="ButtonAllTime" class="btn btn-primary d-block w-100" type="submit" style="width: 166px;">All Time&nbsp;</button></div>
+                                    <div class="col-6"><button id="Button30Days" class="btn btn-primary fs-6 d-block w-100" type="submit">30 Days</button></div>
+                                    <div class="col-6"><button id="Button7Days" class="btn btn-primary d-block w-100" type="submit" style="width: 166px;">7 days</button></div>
+                                    <div class="col-6"><button id="Button1Days" class="btn btn-primary d-block w-100" type="submit">1 Day</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12 col-xxl-12 offset-lg-0">
+                            <div class="card shadow mb-4"></div>
+                        </div>
+                        <div class="col-lg-12 col-xl-12 col-xxl-12 offset-lg-0">
+                            <div id="content-to-download">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Temperature</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="height:100%;max-height:600px"><canvas id="tempChart" style="width:100%;max-width:600px"></canvas></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-12 col-xxl-12 offset-lg-0">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-xl-12 col-xxl-12 mb-4">
+                                    <div class="card shadow border-start-primary py-2" style="padding: 0px 0px;">
+                                        <div class="card-body">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>Temp Range</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="tempRange" >0 Degrees</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div   class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>Average Temp</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div  class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="tempAverage">0 Degrees</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>Time In Range</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div  class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="tempTIR">0%</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>TOTAL READINGS</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span  id="tempTotalReadings" >0</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-12 col-xxl-12 offset-lg-0">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Humidity</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="height:100%;max-height:600px"><canvas id="humidityChart" style="width:100%;max-width:600px"></canvas></div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-12 col-xxl-12 offset-lg-0">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-xl-12 col-xxl-12 mb-4">
+                                    <div class="card shadow border-start-primary py-2" style="padding: 0px 0px;">
+                                        <div class="card-body">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>Humidity Range</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="humRange">0 % RH</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>Average Humidity</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="humAverage">0 % RH</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-end text-primary fw-bold text-xs mb-1"><span>TOTAL READINGS</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span id="humTotalReadings">0</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="text-white bg-dark border rounded border-0 p-4 p-md-5" style="height: 105%;padding-bottom: 81px;">
+                                <div class="row">
+                                    <div class="col-lg-12" style="height: 30.1406px;">
+                                        <h2 class="fw-bold text-center text-white mb-3">Download Data and Graphs</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 flex-grow-1 justify-content-center align-items-center align-self-center" style="height: 169px;">
+                                            <div class="mb-3"></div>
+                                            <div>
+                                                <div class="row gy-2" style="padding-top: -35px;" id = DownloadRawName>
+                                                    <div class="col"><input class="form-control" type="text" id="name-1" name="name" placeholder="Save Raw Data As..." style="text-align: center;"></div>
+                                                </div>
+                                                <div class="row gy-2" id = ButtonRawDownload>
+                                                    <div class="col" style="padding-top: 17px;"><button class="btn btn-primary d-block w-100"><i class="la la-download"></i>&nbsp; Download Raw Data</button></div>
+                                                </div>
+                                                <div class="row gy-2 align-items-center" id = ButtonPDFDownload>
+                                                    <div class="col" style="padding-top: 17px;"><button class="btn btn-primary d-block w-100"><i class="la la-download"></i>&nbsp; Download PDFs</button></div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <footer class="text-center py-4">
+                                <div class="col">
+                                    <div class="text-uppercase text-center text-primary fw-bold text-xs mb-1"><span class="text-nowrap text-capitalize text-secondary">NestAware by Holly Lewis, Steve Muhilane, Talon Sewnath</span></div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+    <script src="chart.min.js"></script> 
+   
+    <script src = "jspdf.umd.min.js"></script>
+    <script src = "jspdf.debug.js"></script>
+
+    <script src="index.js"></script>
+    <script src="jquery.min.js"></script>
+    
+
+
+
+</body>
+
+</html>
